@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { auth, database } from '../config/firebase';
-import './ProfilePage.css';
+import './profilePage.css';
 
 const ProfilePage = () => {
     const navigate = useNavigate();
