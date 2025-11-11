@@ -1,0 +1,17 @@
+export const DICTIONARY_WORDS = [
+  { word: "Apple", ipa: "/ˈæpəl/", example: "I ate a red apple." },
+  { word: "Banana", ipa: "/bəˈnænə/", example: "Bananas are yellow." },
+  { word: "School", ipa: "/skuːl/", example: "We go to school to learn." },
+  { word: "Friend", ipa: "/frɛnd/", example: "My best friend is kind." },
+  { word: "Elephant", ipa: "/ˈɛlɪfənt/", example: "The elephant is huge." },
+  { word: "Computer", ipa: "/kəmˈpjuːtər/", example: "I use a computer for work." },
+  { word: "Triangle", ipa: "/ˈtraɪˌæŋɡəl/", example: "A triangle has three sides." },
+  { word: "Question", ipa: "/ˈkwɛstʃən/", example: "Do you have a question?" },
+  { word: "Strength", ipa: "/strɛŋkθ/", example: "You need strength for that lift." },
+  { word: "Through", ipa: "/θruː/", example: "She walked through the door." },
+  { word: "Yesterday", ipa: "/ˈjɛstərdeɪ/", example: "I played yesterday." },
+  { word: "Water", ipa: "/ˈwɔːtər/", example: "Please drink more water." },
+  { word: "Colour", ipa: "/ˈkʌlər/", example: "What is your favorite colour?" },
+  { word: "Chocolate", ipa: "/ˈtʃɒklɪt/", example: "I love chocolate ice cream." },
+  { word: "Measure", ipa: "/ˈmɛʒər/", example: "We must measure the distance." },
+];

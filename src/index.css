@@ -1,0 +1,54 @@
+/* frontend/src/index.css */
+
+/* Define the color palette */
+:root {
+  --color-primary: #1C3144; /* Deep Blue (Main Background) */
+  --color-secondary: #FF6B00; /* Vibrant Orange (CTA, Highlights) */
+  --color-accent: #FFD700; /* Soft Yellow (Accent, Stars) */
+  --color-text-light: #F0F4F8; /* Light Off-White (Text) */
+  --color-text-dark: #333333; /* Dark Text */
+  --color-card-bg: #28445B; /* Slightly lighter blue for cards */
+  --font-family-sans: 'Nunito', sans-serif; /* A friendly, readable font */
+}
+
+/* Apply basic styles to the body */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-sans);
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Optional: Import a friendly Google Font like Nunito */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+/* Utility Class for CTA Button */
+.cta-button {
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  padding: 1rem 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 0 var(--color-accent); /* 3D effect */
+  text-transform: uppercase;
+}
+
+.cta-button:hover {
+  background-color: #FF8533; /* Slightly lighter orange */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 var(--color-accent);
+}
+
+.cta-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--color-accent);
+}

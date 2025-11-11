@@ -1,0 +1,231 @@
+/* Uses theme variables from index.css */
+.practice-page-wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--color-primary);
+    color: var(--color-text-light);
+    align-items: center;
+    padding: 0 16px 30px 16px;
+}
+
+.practice-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+.practice-title {
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--color-accent);
+}
+
+.practice-stats .badge {
+    background: var(--color-card-bg);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* --- Mode Selector --- */
+.drill-mode-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+    background: var(--color-card-bg);
+    border-radius: 15px;
+    box-shadow: 0 4px 0 #121f2d;
+}
+
+.mode-btn {
+    background: transparent;
+    color: var(--color-text-light);
+    border: 1px solid #4A637C;
+    padding: 8px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.mode-btn.active {
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    border-color: var(--color-secondary);
+}
+
+/* --- Drill Card --- */
+.drill-card {
+    background: var(--color-card-bg);
+    border-radius: 20px;
+    padding: 25px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.drill-prompt {
+    width: 100%;
+    text-align: center;
+}
+
+.drill-instruction {
+    font-size: 1rem;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.drill-display-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-primary);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #4A637C;
+}
+
+.current-drill-text {
+    font-size: 1.8rem;
+    font-weight: 900;
+    flex-grow: 1;
+    text-align: left;
+    padding-right: 15px;
+}
+
+.play-btn {
+    background: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* --- Feedback Area --- */
+.drill-feedback-area {
+    width: 100%;
+    text-align: center;
+}
+
+.transcript-display {
+    min-height: 40px;
+    background: var(--color-primary);
+    border: 1px solid #4A637C;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-top: 15px;
+}
+
+.transcript-display.listening {
+    border-color: var(--success);
+    box-shadow: 0 0 5px var(--success);
+}
+
+.feedback-text {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+.feedback-text.success {
+    color: var(--success);
+}
+.feedback-text.fail {
+    color: var(--danger);
+}
+
+.mistake-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 10px 0;
+    background: var(--color-primary);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.mistake-word {
+    font-weight: 900;
+    color: var(--danger);
+}
+
+/* --- Mic Controls --- */
+.mic-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.mic-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 900;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+.mic-btn.listen {
+    background: radial-gradient(circle at 30% 30%, #5bffb3, #24d386 60%, #0cad63);
+    box-shadow: 0 4px 0 #0cad63;
+}
+.mic-btn.rec {
+    background: radial-gradient(circle at 30% 30%, #ff9ba8, var(--danger) 60%, #c61d2a);
+    box-shadow: 0 4px 0 #c61d2a;
+    animation: pulse 1s infinite;
+}
+.mic-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--success);
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
+.next-btn {
+    background: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 800;
+    box-shadow: 0 4px 0 #cc5400;
+    font-size: 1rem;
+}
+.next-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Desktop Adjustments */
+@media (min-width: 768px) {
+    .drill-card {
+        padding: 40px;
+    }
+    .current-drill-text {
+        font-size: 2.2rem;
+    }
+}

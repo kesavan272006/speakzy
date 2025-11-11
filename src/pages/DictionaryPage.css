@@ -1,0 +1,144 @@
+/* Uses theme variables from index.css */
+.dictionary-wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--color-primary);
+    color: var(--color-text-light);
+    align-items: center;
+    padding: 0 16px 30px 16px;
+    box-sizing: border-box;
+}
+
+.dictionary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    width: 100%;
+    max-width: 700px;
+}
+
+.dictionary-title {
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: var(--color-accent);
+    text-align: center;
+    flex-grow: 1;
+}
+
+.back-btn {
+    background: var(--color-card-bg);
+    color: var(--color-secondary);
+    border: none;
+    border-radius: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s;
+    font-size: 0.9rem;
+}
+
+/* --- Search & Main Area --- */
+.dictionary-main {
+    width: 100%;
+    max-width: 700px;
+    background: var(--color-card-bg);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.search-box-container {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    border: 2px solid #4A637C;
+    border-radius: 10px;
+    background: var(--color-primary);
+    color: var(--color-text-light);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    border-color: var(--color-secondary);
+}
+
+/* --- Word List --- */
+.word-list-container {
+    display: grid;
+    gap: 15px;
+    /* Default: Single column for mobile */
+    grid-template-columns: 1fr; 
+}
+
+.word-entry-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-primary);
+    border-radius: 12px;
+    padding: 15px;
+    border-left: 5px solid var(--color-accent); /* Visual pop */
+}
+
+.word-details {
+    text-align: left;
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.word-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-text-light);
+    margin: 0 0 5px 0;
+}
+
+.word-ipa {
+    font-family: 'Times New Roman', serif; /* Classic IPA font style */
+    font-size: 1.1rem;
+    color: var(--color-secondary); /* Highlight IPA */
+    font-weight: 600;
+}
+
+.word-example {
+    font-size: 0.9rem;
+    color: var(--color-muted, #A9BECD);
+    margin-top: 5px;
+}
+
+.pronounce-btn {
+    background: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+.pronounce-btn:hover {
+    background: var(--color-accent);
+}
+
+.no-results {
+    text-align: center;
+    color: var(--color-muted);
+    padding: 20px;
+}
+
+/* --- Desktop Layout (Two columns for more words) --- */
+@media (min-width: 600px) {
+    .word-list-container {
+        /* Two columns on larger screens */
+        grid-template-columns: 1fr 1fr;
+    }
+}
