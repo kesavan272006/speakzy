@@ -1,4 +1,3 @@
-// frontend/src/components/Navigation.jsx
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Navigation.css';

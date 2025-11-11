@@ -1,4 +1,3 @@
-/* Uses theme variables from index.css */
 .leaderboard-wrap {
     display: flex;
     flex-direction: column;
@@ -10,7 +9,6 @@
     box-sizing: border-box;
 }
 
-/* --- Header --- */
 .leaderboard-header {
     display: flex;
     align-items: center;
@@ -22,7 +20,7 @@
 
 .leaderboard-title {
     font-weight: 900;
-    font-size: 1.6rem; /* Slightly larger title for impact */
+    font-size: 1.6rem;
     color: var(--color-accent);
     text-align: center;
     flex-grow: 1;
@@ -41,7 +39,6 @@
 }
 
 
-/* --- Main Card --- */
 .leaderboard-card {
     background: var(--color-card-bg);
     border-radius: 20px;
@@ -51,7 +48,6 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* --- Header Row FIX --- */
 .leaderboard-header-row {
     display: flex;
     padding: 10px 5px;
@@ -60,11 +56,9 @@
     font-weight: 900;
     font-size: 0.9rem;
     color: var(--color-accent);
-    /* Ensure the header row itself is aligned */
     align-items: center; 
 }
 
-/* --- Player Row FIX --- */
 .player-row {
     display: flex;
     align-items: center;
@@ -76,31 +70,28 @@
     background-color: #24425A;
 }
 
-/* --- Column Layouts FIX: Enforce Fixed Widths --- */
 .rank-col {
-    width: 15%; /* Rank column is small and centered */
+    width: 15%;
     text-align: center;
     font-size: 1.2rem;
 }
 
 .name-col {
-    width: 50%; /* Name and email take up 50% */
+    width: 50%;
     text-align: left;
     display: flex;
     flex-direction: column;
-    /* Ensure internal name column text starts correctly */
     padding-left: 10px; 
 }
 
 .levels-col {
-    width: 35%; /* Levels and XP take up 35% */
+    width: 35%; 
     text-align: right;
     display: flex;
     flex-direction: column;
     font-weight: 900;
 }
 
-/* Specific Element Styling */
 .medal {
     font-weight: 900;
     font-size: 1.5rem;
@@ -112,7 +103,7 @@
 
 .player-name {
     font-weight: 800;
-    font-size: 1.1rem; /* Make the name prominent */
+    font-size: 1.1rem;
 }
 
 .player-email {
@@ -140,7 +131,6 @@
     color: var(--color-muted);
 }
 
-/* --- Loading Screen Styles (Reusing existing styles) --- */
 .loading-screen {
     position: fixed;
     top: 0;

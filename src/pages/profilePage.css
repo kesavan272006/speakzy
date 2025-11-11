@@ -1,4 +1,3 @@
-/* Uses theme variables from index.css */
 .profile-wrap {
     display: flex;
     flex-direction: column;
@@ -10,7 +9,6 @@
     box-sizing: border-box;
 }
 
-/* --- Header --- */
 .profile-header {
     display: flex;
     align-items: center;
@@ -41,7 +39,6 @@
 }
 
 
-/* --- Main Card --- */
 .profile-main-card {
     background: var(--color-card-bg);
     border-radius: 20px;
@@ -54,7 +51,6 @@
     align-items: center;
 }
 
-/* --- Avatar Section --- */
 .avatar-section {
     text-align: center;
     margin-bottom: 30px;
@@ -87,7 +83,6 @@
     color: var(--color-muted, #A9BECD);
 }
 
-/* --- Stats Grid --- */
 .stats-grid {
     display: flex;
     justify-content: space-around;
@@ -120,7 +115,6 @@
     text-align: center;
 }
 
-/* --- Edit Section --- */
 .edit-section {
     width: 100%;
     text-align: center;
@@ -214,7 +208,6 @@
     flex: 1;
 }
 
-/* --- Mobile Specific Adjustments --- */
 @media (max-width: 500px) {
     .stat-value {
         font-size: 1.5rem;

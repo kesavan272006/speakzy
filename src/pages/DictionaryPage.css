@@ -1,4 +1,3 @@
-/* Uses theme variables from index.css */
 .dictionary-wrap {
     display: flex;
     flex-direction: column;
@@ -39,7 +38,6 @@
     font-size: 0.9rem;
 }
 
-/* --- Search & Main Area --- */
 .dictionary-main {
     width: 100%;
     max-width: 700px;
@@ -69,11 +67,9 @@
     border-color: var(--color-secondary);
 }
 
-/* --- Word List --- */
 .word-list-container {
     display: grid;
     gap: 15px;
-    /* Default: Single column for mobile */
     grid-template-columns: 1fr; 
 }
 
@@ -84,7 +80,7 @@
     background: var(--color-primary);
     border-radius: 12px;
     padding: 15px;
-    border-left: 5px solid var(--color-accent); /* Visual pop */
+    border-left: 5px solid var(--color-accent);
 }
 
 .word-details {
@@ -101,9 +97,9 @@
 }
 
 .word-ipa {
-    font-family: 'Times New Roman', serif; /* Classic IPA font style */
+    font-family: 'Times New Roman', serif;
     font-size: 1.1rem;
-    color: var(--color-secondary); /* Highlight IPA */
+    color: var(--color-secondary);
     font-weight: 600;
 }
 
@@ -135,10 +131,8 @@
     padding: 20px;
 }
 
-/* --- Desktop Layout (Two columns for more words) --- */
 @media (min-width: 600px) {
     .word-list-container {
-        /* Two columns on larger screens */
         grid-template-columns: 1fr 1fr;
     }
 }

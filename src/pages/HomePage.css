@@ -1,5 +1,3 @@
-/* frontend/src/pages/HomePage.css */
-
 .home-page {
     display: flex;
     min-height: 100vh;
@@ -65,7 +63,7 @@
 .section-banner {
     width: 100%;
     max-width: 500px;
-    background-color: #5cb85c; /* Duolingo Green */
+    background-color: #5cb85c;
     color: var(--color-text-light);
     padding: 1rem 1.5rem;
     border-radius: 12px;
@@ -75,7 +73,7 @@
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 4rem;
-    box-shadow: 0 4px 0 #3e8e41; /* Darker green shadow */
+    box-shadow: 0 4px 0 #3e8e41; 
     cursor: pointer;
 }
 .section-banner:hover {
@@ -83,9 +81,7 @@
     box-shadow: 0 6px 0 #3e8e41;
 }
 
-/* --- Map & Path --- */
 .levels-map-container {
-    /* Central map content */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -110,7 +106,6 @@
     margin: -10px 0; 
     border-radius: 6px;
     z-index: 0; 
-    /* Adding texture to the line */
     background-image: repeating-linear-gradient(
         45deg,
         transparent,
@@ -134,19 +129,18 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    border: 6px solid #1C3144; /* Darker border for depth */
+    border: 6px solid #1C3144; 
     transition: all 0.2s ease;
     position: relative; 
     box-shadow: 0 8px 0 #121f2d;
     z-index: 1; 
-    /* user-select: none; */
     text-align: center;
 }
 
 .level-node.unlocked {
-    background: var(--color-secondary); /* Orange fill */
-    border-color: var(--color-accent); /* Yellow border */
-    box-shadow: 0 8px 0 #ff8c00; /* Darker orange shadow */
+    background: var(--color-secondary); 
+    border-color: var(--color-accent); 
+    box-shadow: 0 8px 0 #ff8c00;
     animation: pulseBorder 1.5s infinite;
 }
 
@@ -157,7 +151,6 @@
 }
 
 
-/* Inner circle for icon/star */
 .level-icon-wrapper {
     width: 80%;
     height: 80%;
@@ -184,7 +177,7 @@
     color: var(--color-text-light);
 }
 .level-node.unlocked.level-1 .level-icon {
-    font-size: 3.5rem; /* Larger icon for the "start" level */
+    font-size: 3.5rem; 
     color: var(--color-text-light);
 }
 
@@ -235,8 +228,8 @@
 .loading-spinner {
     width: 60px;
     height: 60px;
-    border: 8px solid var(--color-card-bg); /* Dark blue ring */
-    border-top-color: var(--color-secondary); /* Orange spinner part */
+    border: 8px solid var(--color-card-bg);
+    border-top-color: var(--color-secondary);
     border-radius: 50%;
     animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 }
@@ -257,7 +250,7 @@
 
 .loading-bar div {
     height: 100%;
-    width: 10%; /* Start small */
+    width: 10%; 
     background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
     border-radius: 4px;
     animation: grow 2s ease-in-out infinite alternate;

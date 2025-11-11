@@ -1,11 +1,8 @@
-/* frontend/src/components/Navigation.css */
-
-/* --- SIDEBAR (Desktop View) --- */
 .sidebar-nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 80px; /* Fixed width for the sidebar */
+    width: 80px; 
     height: 100vh;
     background-color: var(--color-card-bg);
     border-right: 1px solid #3A5770;
@@ -44,7 +41,7 @@
 .sidebar-nav .nav-text {
     font-size: 0.7rem;
     font-weight: 600;
-    display: block; /* Stack icon and text */
+    display: block; 
 }
 
 .sidebar-nav .nav-icon {
@@ -57,7 +54,6 @@
     color: var(--color-accent);
 }
 
-/* Hide sidebar on small screens */
 @media (max-width: 900px) {
     .sidebar-nav {
         display: none;
@@ -65,7 +61,6 @@
 }
 
 
-/* --- BOTTOM NAVBAR (Mobile View) --- */
 .bottom-navbar {
     position: fixed;
     bottom: 0;
@@ -75,7 +70,7 @@
     height: 60px;
     background-color: var(--color-card-bg);
     border-top: 1px solid #3A5770;
-    display: none; /* Hidden by default */
+    display: none; 
     justify-content: space-around;
     align-items: center;
     z-index: 100;
@@ -83,7 +78,7 @@
 
 @media (max-width: 900px) {
     .bottom-navbar {
-        display: flex; /* Show on mobile */
+        display: flex; 
     }
 }
 
@@ -114,5 +109,5 @@
 }
 
 .bottom-navbar .nav-text {
-    display: none; /* Hide text label on mobile bottom nav */
+    display: none;
 }

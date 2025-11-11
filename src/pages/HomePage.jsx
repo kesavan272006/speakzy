@@ -116,7 +116,6 @@ const HomePage = () => {
     return (
         <div className={`home-page ${isDesktop ? 'has-sidebar' : ''}`}>
             
-            {/* Navigation Component */}
             <Navigation isSidebar={isDesktop} />
 
             <div className="main-content-wrapper">

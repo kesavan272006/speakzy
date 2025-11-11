@@ -17,10 +17,9 @@ const PracticePage = () => {
     const [mode, setMode] = useState(DRILL_MODES.WORD);
     const [transcript, setTranscript] = useState('');
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
-    const [score, setScore] = useState(null); // {percent: 0, feedback: Array}
+    const [score, setScore] = useState(null); 
     const [isListening, setIsListening] = useState(false);
     const [sending, setSending] = useState(false);
-        // Filter words based on the selected mode
     const filteredDrills = useMemo(() => {
         if (!PRACTICE_WORDS) return [];
         if (mode === DRILL_MODES.SENTENCE) {
@@ -40,7 +39,6 @@ const PracticePage = () => {
     const handleResult = (text) => {
         setTranscript(text);
         
-        // Instant scoring against target words
         const targetList = currentDrill.targets.length > 0 ? currentDrill.targets : [currentDrill.text];
         const newScore = scorePronunciation(text, targetList);
         setScore(newScore);
@@ -73,8 +71,6 @@ const PracticePage = () => {
         setScore(null);
         sttStop();
     };
-
-    // Reset index when mode changes
     useEffect(() => {
         setCurrentWordIndex(0);
     }, [mode]);

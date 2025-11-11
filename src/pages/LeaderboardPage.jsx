@@ -46,7 +46,6 @@ const LeaderboardPage = () => {
                     }
                 }
 
-                // Sort by levels completed (descending), then XP (descending)
                 results.sort((a, b) => {
                     if (b.levels !== a.levels) {
                         return b.levels - a.levels;

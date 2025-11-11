@@ -24,7 +24,6 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
     const targetId = fixedLevelId || id;
     const level = useMemo(()=>LEVELS.find(l=>String(l.id)===String(targetId))||LEVELS[0],[targetId]);
     
-    // State Variables
     const [uid, setUid] = useState(null);
     const [userData, setUserData] = useState({ name: 'Speaker', age: 4 });
     const [transcript, setTranscript] = useState('');
@@ -59,14 +58,12 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
         setSeconds(180);
         setRunning(false);
         setCorrectionTip(null);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[level]);
     
     useEffect(()=>{
         if (chat.length === 0) {
             startRoleplay();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[level]);
 
 
@@ -160,8 +157,6 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
         ttsStop();
         navigate('/home')
     }
-
-    // --- Timer Effect (Unchanged) ---
     useEffect(()=>{if(!running)return;const t=setInterval(()=>{setSeconds(s=>{if(s<=1){clearInterval(t);setRunning(false);return 0}return s-1})},1000);return()=>clearInterval(t)},[running])
     const mm=Math.floor(seconds/60).toString().padStart(2,'0')
     const ss=Math.floor(seconds%60).toString().padStart(2,'0')

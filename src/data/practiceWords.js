@@ -1,5 +1,3 @@
-// frontend/src/data/practiceWords.js
-
 export const PRACTICE_WORDS = [
     { type: 'word', text: 'Strap', targets: ['strap'], difficulty: 1 },
     { type: 'word', text: 'Thrice', targets: ['thrice'], difficulty: 2 },
