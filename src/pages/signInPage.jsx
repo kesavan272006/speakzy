@@ -7,7 +7,7 @@ import { auth, database, googleprovider } from '../config/firebase';
 
 import GooglePic from '../assets/googlePic.png';
 import LoveVideo from '../assets/LittleGirlInLove.mp4';
-import './SignInPage.css';
+import './signInPage.css';
 
 const SpeakzyLogoMini = () => (
     <div className="speakzy-logo-mini">
