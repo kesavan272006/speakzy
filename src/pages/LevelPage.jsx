@@ -51,6 +51,16 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
         return()=>un&&un()
     },[navigate])
 
+    function resetStateAndStart(){
+        setTranscript('');
+        setScore({percent:0,mistakes:[]});
+        setChat([]);
+        setSeconds(180);
+        setRunning(true);
+        setCorrectionTip(null);
+        setIsAwaitingStart(true);
+    }
+
     useEffect(()=>{
         setTranscript('');
         setScore({percent:0,mistakes:[]});
@@ -97,7 +107,6 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
         setTranscript('');
         sttStart(handleResult, ()=>{});
     }
-
 
     async function startRoleplay(){
         setRunning(true);
@@ -165,7 +174,7 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
         }catch(e){
             console.error("Error updating progress:", e);
         }
-        ttsStop(); 
+        ttsStop();
         navigate('/home')
     }
     useEffect(()=>{if(!running)return;const t=setInterval(()=>{setSeconds(s=>{if(s<=1){clearInterval(t);setRunning(false);return 0}return s-1})},1000);return()=>clearInterval(t)},[running])
@@ -223,7 +232,7 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
 
                         <div className="mic-box">
                             <button className={`mic-btn ${sttActive()?'rec':'listen'}`} onClick={toggleMic}>
-                                {sttActive()? 'STOP LISTENING': (isAwaitingStart ? 'START CONVERSATION' : 'SPEAK')}
+                                {sttActive()? 'STOP': (isAwaitingStart ? 'SPEAK' : 'SPEAK')}
                             </button>
                             <div className="transcript-container">
                                 <span className="transcript-label">Your words:</span>
@@ -240,7 +249,7 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
                 </div>
                 
                 <div className="footer">
-                    <button className="secondary" onClick={()=>{ttsStop();setTranscript('');setChat([]);setIsAwaitingStart(true);}}>Restart Level</button>
+                    <button className="secondary" onClick={()=>{ttsStop();setTranscript('');setChat([]);resetStateAndStart()}}>Restart Level</button>
                     <div className="current-score-display">
                         Accuracy: <span className="score-percent" style={{color: score.percent >= level.goal ? '#47ff8a' : '#ffd166'}}>{score.percent}%</span>
                     </div>
