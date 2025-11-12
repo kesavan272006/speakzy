@@ -5,7 +5,7 @@ import { doc, getDoc, setDoc, collection } from 'firebase/firestore';
 
 import { auth, database, googleprovider } from '../config/firebase'; 
 
-import GooglePic from '../assets/googlepic.png';
+import GooglePic from '../assets/googlePic.png';
 import LoveVideo from '../assets/LittleGirlInLove.mp4';
 import './SignInPage.css';
 
