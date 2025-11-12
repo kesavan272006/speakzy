@@ -34,8 +34,8 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
     const [running, setRunning] = useState(false);
     const [talking, setTalking] = useState(false);
     const [correctionTip, setCorrectionTip] = useState(null);
+    const [isAwaitingStart, setIsAwaitingStart] = useState(true);
     const npcGender = useMemo(() => inferGender(level.npc.name), [level.npc.name]);
-
 
     useEffect(()=>{
         const un=onAuthStateChanged(auth,async (u)=>{
@@ -58,14 +58,16 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
         setSeconds(180);
         setRunning(false);
         setCorrectionTip(null);
+        setIsAwaitingStart(true);
     },[level]);
     
     useEffect(()=>{
-        if (chat.length === 0) {
-            startRoleplay();
+        if (isAwaitingStart) {
+            const greeting = `Hi, I am ${level.npc.name}. ${level.setting}. Press 'START CONVERSATION' to begin!`;
+            setChat([{role:'npc',text:greeting}]);
+            setRunning(true);
         }
-    },[level]);
-
+    }, [isAwaitingStart, level]);
 
     function handleResult(text){
         setTranscript(text);
@@ -76,20 +78,30 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
             sttStop();
             return;
         }
+        
+        if(isAwaitingStart) {
+            const greeting = chat[0]?.text || `Hello! Let's start.`;
+            
+            ttsSpeak(greeting,{rate:0.95,pitch:1, gender: npcGender});
+            
+            setTimeout(() => {
+                ttsStop();
+                setTranscript('');
+                sttStart(handleResult, () => {});
+                setIsAwaitingStart(false);
+            }, 1500); 
+            return;
+        }
+
         ttsStop(); 
         setTranscript('');
-        sttStart(handleResult, ()=>{ /* onEnd handler */ });
+        sttStart(handleResult, ()=>{});
     }
 
 
     async function startRoleplay(){
         setRunning(true);
         setSending(true);
-        
-        const greeting = `Hi, I am ${level.npc.name}. ${level.setting}. Let's talk! Say something to me.`;
-        setChat([{role:'npc',text:greeting}])
-        
-        ttsSpeak(greeting,{rate:0.95,pitch:1, gender: npcGender}); 
         setSending(false);
     }
 
@@ -104,7 +116,6 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
         setCorrectionTip(null);
 
         sttStop();
-
         
         try{
             const promptConfig = generateNpcPrompt(level, transcript, currentScore.mistakes, chat, userData);
@@ -154,7 +165,7 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
         }catch(e){
             console.error("Error updating progress:", e);
         }
-        ttsStop();
+        ttsStop(); 
         navigate('/home')
     }
     useEffect(()=>{if(!running)return;const t=setInterval(()=>{setSeconds(s=>{if(s<=1){clearInterval(t);setRunning(false);return 0}return s-1})},1000);return()=>clearInterval(t)},[running])
@@ -212,15 +223,15 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
 
                         <div className="mic-box">
                             <button className={`mic-btn ${sttActive()?'rec':'listen'}`} onClick={toggleMic}>
-                                {sttActive()? 'STOP LISTENING':'SPEAK'}
+                                {sttActive()? 'STOP LISTENING': (isAwaitingStart ? 'START CONVERSATION' : 'SPEAK')}
                             </button>
                             <div className="transcript-container">
                                 <span className="transcript-label">Your words:</span>
-                                <div className="transcript-text">{transcript || "Speak now..."}</div>
+                                <div className="transcript-text">{transcript || (sttActive() ? "Listening closely..." : "Speak now...")}</div>
                             </div>
                             <div className="action-buttons">
                                 <button className="secondary" onClick={()=>{ttsStop();setTranscript('')}}>Clear</button>
-                                <button className="primary" disabled={sending||!transcript.trim()||sttActive()} onClick={sendToNpc}>
+                                <button className="primary" disabled={sending||!transcript.trim()||sttActive()||isAwaitingStart} onClick={sendToNpc}>
                                     {sending?'SENDING...':'SEND ANSWER'}
                                 </button>
                             </div>
@@ -229,7 +240,7 @@ export default function LevelPage({ fixedLevelId, videoSrc }){
                 </div>
                 
                 <div className="footer">
-                    <button className="secondary" onClick={()=>{ttsStop();setTranscript('');setChat([]);startRoleplay()}}>Restart Level</button>
+                    <button className="secondary" onClick={()=>{ttsStop();setTranscript('');setChat([]);setIsAwaitingStart(true);}}>Restart Level</button>
                     <div className="current-score-display">
                         Accuracy: <span className="score-percent" style={{color: score.percent >= level.goal ? '#47ff8a' : '#ffd166'}}>{score.percent}%</span>
                     </div>
